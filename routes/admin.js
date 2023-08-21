@@ -17,10 +17,6 @@ router.get("/add-product", (req, res, next) => {
     formsCSS: true,
     productCSS: true,
   });
-    // res.sendFile(path.join(rootDir, 'views', 'add-product.html'));
-//   res.send(
-//     '<form action ="/admin/add-product" method="POST"><input type="text" name="title"><button>Add Product</button></form>'
-//   );
 });
 
 // /admin/add-product => POST
