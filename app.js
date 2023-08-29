@@ -1,4 +1,6 @@
 const path = require("path");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -35,11 +37,11 @@ app.use(errorController.get404);
 
 mongoose
   .connect(
-    "mongodb+srv://kcp:ruwGqtZ0jUn95j33@cluster0.ybpyzxn.mongodb.net/shop?retryWrites=true&w=majority"
+    `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.ybpyzxn.mongodb.net/shop?retryWrites=true&w=majority`
   )
   .then((result) => {
-    User.findOne().then(user => {
-      if(!user) {
+    User.findOne().then((user) => {
+      if (!user) {
         const user = new User({
           name: "Kunwar",
           email: "kunwar@test.com",
